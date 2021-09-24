@@ -1,0 +1,23 @@
+{
+  "name": "js-core-fe-37",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "parcel ./index.html",
+    "build": "parcel build ./index.html"
+
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CST-education/js-core-FE-37.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CST-education/js-core-FE-37/issues"
+  },
+  "homepage": "https://github.com/CST-education/js-core-FE-37#readme"
+}

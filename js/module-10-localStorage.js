@@ -29,3 +29,5 @@ form.addEventListener('submit', (e) => {
 
 form.elements.firstInput.value = localStorage.getItem('firstInput-data')
 form.elements.secondInput.value = localStorage.getItem('secondInput-data')
+
+console.log('hello world')
