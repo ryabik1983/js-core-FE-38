@@ -30,4 +30,13 @@ form.addEventListener('submit', (e) => {
 form.elements.firstInput.value = localStorage.getItem('firstInput-data')
 form.elements.secondInput.value = localStorage.getItem('secondInput-data')
 
-console.log('hello world')
+console.log('До вызова setTimeout');
+const logger = time => {
+  console.log(`Лог каждые ${time} ms, потому что не отменили таймаут - ${Date.now()}`);
+
+}
+setInterval(logger, 2000, 2000);
+const timerId = setTimeout(logger, 2000, 2000);
+  console.log(timerId);
+
+

@@ -117,41 +117,52 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"index.js":[function(require,module,exports) {
-// MODULES
-// import './js/module-1-1.js'
-// import './js/module-1-2.js'
-// import './js/module-2-1-arrays.js'
-// import './js/module-2-2-functions.js'
-// import './js/module-3-objects.js'
-// import './js/module-3-destructuring.js'
-// import './js/module-3-spread-rest.js'
-// import './js/module-4-cb.js'
-// import './js/module-4-stack.js'
-// import './js/module-4-closure.js'
-// import './js/module-4-this.js'
-// import './js/module-5-constructors.js'
-// import './js/module-5-classes.js'
-// import './js/module-6-pure-func.js'
-// import './js/module-6-methods.js'
-// import './js/module-6-methods-short.js'
-// import './js/module-7-DOM.js'
-// import './js/module-7-events.js'
-// import './js/module-8-propagation.js'
-// import './js/module-8-throttle.js'
-// import './js/module-8-debounce.js'
-// import './js/module-8-IntersectionObserver.js'
-// import './js/module-10-JSON.js'
-// import './js/module-10-localStorage.js'
-// import './js/like-button.js'
-// PRACTICE
-// import './practice/module-3.js'
-// import './practice/module-4.js'
-// import './practice/module-5.js'
-// import './practice/module-6.js'
-// import './practice/core-repeat.js'
-// import './js/this.js'
-},{}],"../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+})({"js/module-10-localStorage.js":[function(require,module,exports) {
+console.log(localStorage);
+var form = document.querySelector('.form');
+console.dir(form);
+form.addEventListener('input', function (e) {
+  //   console.log(e.target.name)
+  if (e.target.name === 'firstInput') {
+    localStorage.setItem('firstInput-data', e.target.value);
+  } else if (e.target.name === 'secondInput') {
+    localStorage.setItem('secondInput-data', e.target.value);
+  } else {
+    alert("\u0427\u0442\u043E-\u0442\u043E \u043F\u043E\u0448\u043B\u043E \u043D\u0435 \u0442\u0430\u043A!");
+  }
+});
+form.addEventListener('submit', function (e) {
+  e.preventDefault();
+  var _e$target$elements = e.target.elements,
+      firstInput = _e$target$elements.firstInput,
+      secondInput = _e$target$elements.secondInput;
+  var obj = {
+    firstInput: firstInput.value,
+    secondInput: secondInput.value
+  };
+  localStorage.setItem('obj', JSON.stringify(obj)); // тут отправляемна бек
+
+  localStorage.removeItem('firstInput-data');
+  localStorage.removeItem('secondInput-data');
+  firstInput.value = '';
+  secondInput.value = '';
+});
+form.elements.firstInput.value = localStorage.getItem('firstInput-data');
+form.elements.secondInput.value = localStorage.getItem('secondInput-data');
+console.log('До вызова setTimeout');
+
+var logger = function logger(time) {
+  console.log("\u041B\u043E\u0433 \u043A\u0430\u0436\u0434\u044B\u0435 ".concat(time, " ms, \u043F\u043E\u0442\u043E\u043C\u0443 \u0447\u0442\u043E \u043D\u0435 \u043E\u0442\u043C\u0435\u043D\u0438\u043B\u0438 \u0442\u0430\u0439\u043C\u0430\u0443\u0442 - ").concat(Date.now()));
+};
+
+setInterval(logger, 2000, 2000);
+var timerId = setTimeout(logger, 2000, 2000);
+console.log(timerId);
+},{}],"index.js":[function(require,module,exports) {
+"use strict";
+
+require("./js/module-10-localStorage.js");
+},{"./js/module-10-localStorage.js":"js/module-10-localStorage.js"}],"../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -179,7 +190,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64327" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54287" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
