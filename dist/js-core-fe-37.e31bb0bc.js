@@ -150,14 +150,24 @@ form.addEventListener('submit', function (e) {
 form.elements.firstInput.value = localStorage.getItem('firstInput-data');
 form.elements.secondInput.value = localStorage.getItem('secondInput-data');
 console.log('До вызова setTimeout');
+setTimeout(function () {
+  console.log('Вызов отложенной функции');
+}, 5000);
+console.log('После вызова setTimeout');
 
 var logger = function logger(time) {
   console.log("\u041B\u043E\u0433 \u043A\u0430\u0436\u0434\u044B\u0435 ".concat(time, " ms, \u043F\u043E\u0442\u043E\u043C\u0443 \u0447\u0442\u043E \u043D\u0435 \u043E\u0442\u043C\u0435\u043D\u0438\u043B\u0438 \u0442\u0430\u0439\u043C\u0430\u0443\u0442 - ").concat(Date.now()));
-};
+}; // setInterval(logger, 2000, 2000);
 
-setInterval(logger, 2000, 2000);
-var timerId = setTimeout(logger, 2000, 2000);
-console.log(timerId);
+
+var intervalId = setInterval(logger, 2000, 2000);
+console.log(intervalId);
+var shouldCancelTimer = Math.random() > 0.3;
+console.log(shouldCancelTimer);
+
+if (shouldCancelTimer) {
+  clearInterval(intervalId);
+}
 },{}],"index.js":[function(require,module,exports) {
 "use strict";
 
@@ -190,7 +200,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54287" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63197" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

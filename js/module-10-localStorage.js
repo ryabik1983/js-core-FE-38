@@ -31,12 +31,23 @@ form.elements.firstInput.value = localStorage.getItem('firstInput-data')
 form.elements.secondInput.value = localStorage.getItem('secondInput-data')
 
 console.log('До вызова setTimeout');
+setTimeout(() => {console.log('Вызов отложенной функции')}, 5000
+)
+console.log('После вызова setTimeout');
+
 const logger = time => {
   console.log(`Лог каждые ${time} ms, потому что не отменили таймаут - ${Date.now()}`);
 
 }
-setInterval(logger, 2000, 2000);
-const timerId = setTimeout(logger, 2000, 2000);
-  console.log(timerId);
+// setInterval(logger, 2000, 2000);
+const intervalId = setInterval(logger, 2000, 2000);
+console.log(intervalId);
+
+const shouldCancelTimer = Math.random() > 0.3;
+console.log(shouldCancelTimer);
+
+if (shouldCancelTimer) {
+  clearInterval(intervalId);
+}
 
 
