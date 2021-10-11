@@ -30,14 +30,17 @@ form.addEventListener('submit', (e) => {
 form.elements.firstInput.value = localStorage.getItem('firstInput-data')
 form.elements.secondInput.value = localStorage.getItem('secondInput-data')
 
-console.log('До вызова setTimeout');
-setTimeout(() => {console.log('Вызов отложенной функции 1000')}, 1000
-);
-setTimeout(() => {console.log('Вызов отложенной функции 2000')}, 2000
-);
-setTimeout(() => {console.log('Вызов отложенной функции 5000')}, 5000
-)
-console.log('После вызова setTimeout');
+// console.log('До вызова setTimeout');
+// setTimeout(() => {console.log('Вызов отложенной функции 1000')}, 1000
+// );
+// setTimeout(() => {console.log('Вызов отложенной функции 2000')}, 2000
+// );
+// setTimeout(() => {console.log('Вызов отложенной функции 5000')}, 5000
+// )
+// console.log('После вызова setTimeout');
+
+const date = new Date(5000);
+console.dir(date);
 
 // const logger = time => {
 //   console.log(`Лог каждые ${time} ms, потому что не отменили таймаут - ${Date.now()}`);

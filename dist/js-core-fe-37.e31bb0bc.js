@@ -148,18 +148,17 @@ form.addEventListener('submit', function (e) {
   secondInput.value = '';
 });
 form.elements.firstInput.value = localStorage.getItem('firstInput-data');
-form.elements.secondInput.value = localStorage.getItem('secondInput-data');
-console.log('До вызова setTimeout');
-setTimeout(function () {
-  console.log('Вызов отложенной функции 1000');
-}, 1000);
-setTimeout(function () {
-  console.log('Вызов отложенной функции 2000');
-}, 2000);
-setTimeout(function () {
-  console.log('Вызов отложенной функции 5000');
-}, 5000);
-console.log('После вызова setTimeout'); // const logger = time => {
+form.elements.secondInput.value = localStorage.getItem('secondInput-data'); // console.log('До вызова setTimeout');
+// setTimeout(() => {console.log('Вызов отложенной функции 1000')}, 1000
+// );
+// setTimeout(() => {console.log('Вызов отложенной функции 2000')}, 2000
+// );
+// setTimeout(() => {console.log('Вызов отложенной функции 5000')}, 5000
+// )
+// console.log('После вызова setTimeout');
+
+var date = new Date(5000);
+console.dir(date); // const logger = time => {
 //   console.log(`Лог каждые ${time} ms, потому что не отменили таймаут - ${Date.now()}`);
 // }
 // setInterval(logger, 2000, 2000);
@@ -202,7 +201,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55086" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51935" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
