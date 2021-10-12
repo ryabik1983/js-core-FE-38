@@ -31,7 +31,9 @@
 // import './js/module-8-IntersectionObserver.js'
 
 // import './js/module-10-JSON.js'
-import './js/module-10-localStorage.js'
+// import './js/module-10-localStorage.js';
+import './js/module-11-timeOut.js';
+
 // import './js/like-button.js'
 
 // PRACTICE
