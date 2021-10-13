@@ -117,38 +117,8 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"js/module-10-localStorage.js":[function(require,module,exports) {
-console.log(localStorage);
-var form = document.querySelector('.form');
-console.dir(form);
-form.addEventListener('input', function (e) {
-  //   console.log(e.target.name)
-  if (e.target.name === 'firstInput') {
-    localStorage.setItem('firstInput-data', e.target.value);
-  } else if (e.target.name === 'secondInput') {
-    localStorage.setItem('secondInput-data', e.target.value);
-  } else {
-    alert("\u0427\u0442\u043E-\u0442\u043E \u043F\u043E\u0448\u043B\u043E \u043D\u0435 \u0442\u0430\u043A!");
-  }
-});
-form.addEventListener('submit', function (e) {
-  e.preventDefault();
-  var _e$target$elements = e.target.elements,
-      firstInput = _e$target$elements.firstInput,
-      secondInput = _e$target$elements.secondInput;
-  var obj = {
-    firstInput: firstInput.value,
-    secondInput: secondInput.value
-  };
-  localStorage.setItem('obj', JSON.stringify(obj)); // тут отправляемна бек
-
-  localStorage.removeItem('firstInput-data');
-  localStorage.removeItem('secondInput-data');
-  firstInput.value = '';
-  secondInput.value = '';
-});
-form.elements.firstInput.value = localStorage.getItem('firstInput-data');
-form.elements.secondInput.value = localStorage.getItem('secondInput-data'); // console.log('До вызова setTimeout');
+})({"js/module-11-timeOut.js":[function(require,module,exports) {
+// console.log('До вызова setTimeout');
 // setTimeout(() => {console.log('Вызов отложенной функции 1000')}, 1000
 // );
 // setTimeout(() => {console.log('Вызов отложенной функции 2000')}, 2000
@@ -156,9 +126,15 @@ form.elements.secondInput.value = localStorage.getItem('secondInput-data'); // c
 // setTimeout(() => {console.log('Вызов отложенной функции 5000')}, 5000
 // )
 // console.log('После вызова setTimeout');
-
-var date = new Date(5000);
-console.dir(date); // const logger = time => {
+// const date1 = Date.now();
+// console.log(date1);
+// const timerId = setTimeout(() => {
+//   const date2 = Date.now();
+// console.log(date1);
+// console.log(date2);
+// console.log(date2 - date1);
+// }, 3000);
+// const logger = time => {
 //   console.log(`Лог каждые ${time} ms, потому что не отменили таймаут - ${Date.now()}`);
 // }
 // setInterval(logger, 2000, 2000);
@@ -169,11 +145,54 @@ console.dir(date); // const logger = time => {
 // if (shouldCancelTimer) {
 //   clearInterval(intervalId);
 // }
+var timer = {
+  start: function start() {
+    var startTime = Date.now();
+    setInterval(function () {
+      var currentTime = Date.now(); // console.log('currentTime', currentTime);
+      // console.log('startTime', startTime);
+      // console.log('object!');
+
+      var deltaTime = currentTime - startTime;
+
+      var _getTimerComponents = getTimerComponents(deltaTime),
+          days = _getTimerComponents.days,
+          hours = _getTimerComponents.hours,
+          mins = _getTimerComponents.mins,
+          secs = _getTimerComponents.secs; // console.log(timeComponents);
+
+
+      console.log("".concat(days, ":").concat(hours, ":").concat(mins, ":").concat(secs));
+    }, 1000);
+  }
+};
+timer.start();
+
+function getTimerComponents(time) {
+  var days = pad(Math.floor(time / (1000 * 60 * 60 * 24)));
+  var hours = pad(Math.floor(time % (1000 * 60 * 60 * 24) / (1000 * 60 * 60)));
+  var mins = pad(Math.floor(time % (1000 * 60 * 60) / (1000 * 60)));
+  var secs = pad(Math.floor(time % (1000 * 60) / 1000));
+  return {
+    days: days,
+    hours: hours,
+    mins: mins,
+    secs: secs
+  };
+}
+
+;
+
+function pad(value) {
+  return String(value).padStart(2, "0");
+}
+
+;
 },{}],"index.js":[function(require,module,exports) {
 "use strict";
 
-require("./js/module-10-localStorage.js");
-},{"./js/module-10-localStorage.js":"js/module-10-localStorage.js"}],"../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+require("./js/module-11-timeOut.js");
+},{"./js/module-11-timeOut.js":"js/module-11-timeOut.js"}],"../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -201,7 +220,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51935" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50307" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
