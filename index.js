@@ -32,7 +32,8 @@
 
 // import './js/module-10-JSON.js'
 // import './js/module-10-localStorage.js';
-import './js/module-11-timeOut.js';
+// import './js/module-11-timeOut.js';
+import './js/module-12-HTTP.js';
 
 // import './js/like-button.js'
 
